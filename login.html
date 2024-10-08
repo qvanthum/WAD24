@@ -7,29 +7,28 @@
     <title>Login</title>
 </head>
 <body>
-    <header class="header">
-        <ul class = "nav">
-            <li><a href="index.html">Home</a></li>
-        </ul>
-        <a class="userPic"><img src="res/images/profilePicture.jpg" width="50" height="50" alt="Profile picture"></a>
-    </header>
-        <section>
-            <div>
+    <div class="container">
+        <header>
+            <nav>
+                <a  href="index.html">Home</a>
+            </nav>
+            <a class="userPic"><img src="res/images/profilePicture.jpg" width="50" height="50" alt="Profile picture"></a>
+        </header>
+
+        <div class="middle-block">
             <form target="_blank" action="index.html" method="POST">
                 <h3>Welcome to PostIt</h3>
-                <p id="blue">Create an Account</p>
+                <p>Create an Account</p>
                 <p>or</p>
                 <p>Please log in</p>
                 <input type="email" class="textbox" placeholder="Email" required/> <br>
                 <input type="password" class="textbox" placeholder="Password" required/><br>
-                <input onclick="window.location.href='index.html';" type="submit" class="button" value="Log in">
-                <p id="blue">Forget password</p>
+                <input type="submit" class="button" value="Log in">
+                <p id="forgetPassword">Forget password</p>
             </form>
         </div>
-        </section>
-    <footer class="footer">
 
-    </footer>
+    </div>
 </body>
 
 </html>

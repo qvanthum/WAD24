@@ -51,13 +51,17 @@ section {
     width: 50%;
 }
 
-.nav a:hover {
+nav a:hover {
     background-color: rgb(201, 210, 210);
     border-radius: 5px;
 }
 
-#blue {
+#forgetPassword, h3 + p {
     color: rgb(45, 206, 242);
+}
+
+h3 ~ input {
+    font-size: 25px;
 }
 
 form {
@@ -77,6 +81,132 @@ form {
 h3 {
     margin: 10px;
 }
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+header {
+    width: 100%;
+    padding-top: .5em;
+    display: flex;
+    background-color: #bfbfbf;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+footer {
+    width: 98%;
+    background-color: #bfbfbf;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    display: block;
+}
+
+.middle-block {
+    padding: 20px;
+    text-align: center;
+    flex: 2;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+  }
+
+.middle {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.leftbar {
+    width: 15%;
+    background-color:#bfbfbf; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.rightbar {
+    width: 100px;
+    background-color: #bfbfbf;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.posts {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 10px;
+    background-color:  #bfbfbf;
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .post-date {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .post-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .post-text {
+    margin-bottom: 10px;
+  }
+  
+  .post-text p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .like-button {
+    text-align: left;
+  }
+  
+  .like-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .like-button button:hover {
+    background-color: #0056b3;
+  }
+  
 
 @media(max-width: 800px) {
     section {
@@ -111,3 +241,4 @@ input[type='file'] {
     color: transparent;
     overflow: hidden;
 }
+
