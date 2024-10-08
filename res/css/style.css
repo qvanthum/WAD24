@@ -1,73 +1,113 @@
-
-*{
-    font-family:Arial;
+* {
+    font-family: Arial;
     box-sizing: border-box;
     font-size: large;
-    
+
 }
-ul{
+
+ul {
     list-style: none;
 }
-.header{
+
+.header {
     width: 100%;
-    position:fixed;
+    position: fixed;
     padding-top: .5em;
     margin-bottom: 200px;
     display: flex;
-    background-color: rgb(196, 182, 182);
+    background-color: #bfbfbf;
     flex-direction: row;
     justify-content: space-between;
     border-radius: 10px;
 }
-body{
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
+
+.userPic {
+    margin-right: 1rem;
 }
 
-section{
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+section {
     position: relative;
     text-align: center;
     display: flex;
     align-items: center;
     border-radius: 10px;
 }
-.nav a{
+
+.nav a {
     text-decoration: none;
     color: black;
     text-align: end;
 }
+
 .textbox {
-margin: 5px 20px 5px 20px;
-width: 50%;
+    margin: 5px 20px 5px 20px;
+    width: 50%;
 }
 
-.nav a:hover{
+.nav a:hover {
     background-color: rgb(201, 210, 210);
     border-radius: 5px;
 }
-#blue{
+
+#blue {
     color: rgb(45, 206, 242);
 }
-form{
+
+form {
     padding: 20px;
     border-radius: 20px;
-    background-color:  rgb(220, 203, 203);
+    background-color: #d8d8d8;
     margin: auto;
-    
 }
-.button{
+
+.button {
     background-color: rgb(7, 85, 137);
-    margin: 10px ;
-    padding:0px 3px;
+    margin: 10px;
+    padding: 3px 10px;
     color: whitesmoke;
 }
-h3{
+
+h3 {
     margin: 10px;
 }
+
 @media(max-width: 800px) {
-    section{
+    section {
         width: 50%;
     }
+}
+
+#postForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 15rem;
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    word-wrap: break-word;
+    text-align: right;
+    margin-right: 0.5rem;
+}
+
+.form-row > input#file {
+    width: 190px;
+}
+
+input[type='file'] {
+    color: transparent;
+    overflow: hidden;
 }
