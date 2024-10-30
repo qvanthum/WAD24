@@ -1,0 +1,42 @@
+[
+{
+    "userId": 1,
+    "id": 1,
+    "profilePicPath": "res/images/profilePicture.jpg",
+    "picturePath": "res/images/moon.jpg",
+    "postDate": "23.10.2024",
+    "postText": "This is an amazing post! You are cool!"
+},
+{
+    "userId": 1,
+    "id": 2,
+    "profilePicPath": "res/images/profilePicture.jpg",
+    "picturePath": "res/images/tartu2022.jpg",
+    "postDate": "22.10.2024",
+    "postText": "This is an amazing post content. It could be a description of the image or any other text content related to the post."
+
+},
+{
+    "userId": 1,
+    "id": 3,
+    "profilePicPath": "res/images/profilePicture.jpg",
+    "postDate": "20.10.2024",
+    "postText": "Really awesome book review :)"
+},
+{
+    "userId": 2,
+    "id": 1,
+    "profilePicPath": "res/images/profilePicture.jpg",
+    "postDate": "19.10.2024",
+    "postText": "Whoa this is another post without image! Amazing"
+
+},
+{
+    "userId": 2,
+    "id": 2,
+    "profilePicPath": "res/images/profilePicture.jpg",
+    "picturePath": "res/images/man.jpg",
+    "postDate": "20.10.2024",
+    "postText": "Hi! How are you!"
+}
+]
