@@ -36,7 +36,45 @@
     "id": 2,
     "profilePicPath": "res/images/profilePicture.jpg",
     "picturePath": "res/images/man.jpg",
-    "postDate": "20.10.2024",
+    "postDate": "19.10.2024",
     "postText": "Hi! How are you!"
+},
+{
+    "userId": 2,
+    "id": 3,
+    "profilePicPath": "res/images/profilePicture.jpg",
+    "picturePath": "res/images/cat.jpg",
+    "postDate": "18.10.2024",
+    "postText": "Look how cute my cat is!"
+},
+{
+    "userId": 3,
+    "id": 1,
+    "profilePicPath": "res/images/profilePicture2.jpg",
+    "picturePath": "res/images/rocket.jpg",
+    "postDate": "17.10.2024",
+    "postText": "So cool!"
+},
+{
+    "userId": 3,
+    "id": 2,
+    "profilePicPath": "res/images/profilePicture2.jpg",
+    "postDate": "17.10.2024",
+    "postText": "Wow I can post without a picture."
+},
+{
+    "userId": 3,
+    "id": 3,
+    "profilePicPath": "res/images/profilePicture2.jpg",
+    "picturePath": "res/images/sky.jpg",
+    "postDate": "16.10.2024",
+    "postText": "Look at the stars!"
+},
+{
+    "userId": 3,
+    "id": 4,
+    "profilePicPath": "res/images/profilePicture2.jpg",
+    "postDate": "14.10.2024",
+    "postText": "First post, so excited :D"
 }
 ]
