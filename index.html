@@ -65,7 +65,7 @@ const fetchLocalPosts = async () => {
         const response = await fetch(localPosts);
         if (!response.ok) throw new Error('Failed to load local posts JSON');
         const posts = await response.json();
-        console.log("Fetched from local folder")
+        console.log("Fetched from local folder");
         displayPosts(posts);
     } catch (error) {
         console.error('Error fetching local posts:', error);
