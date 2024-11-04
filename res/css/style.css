@@ -193,6 +193,12 @@ footer {
     section {
         width: 50%;
     }
+    .rightbar, .leftbar{
+        display: none;
+    }
+    .posts{
+        width: 100%;
+    }
 }
 
 #postForm {
