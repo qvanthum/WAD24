@@ -5,7 +5,7 @@
         "authorName": "Alice Johnson",
         "profilePicPath": "res/images/profilePicture1.jpg",
         "picturePath": "res/images/moon.jpg",
-        "postDate": "2024-10-23T14:30:00Z",
+        "postDate": "November 1, 2024",
         "postText": "This is an amazing post! You are cool!",
         "likes": 120
     },
@@ -15,7 +15,7 @@
         "authorName": "Alice Johnson",
         "profilePicPath": "res/images/profilePicture1.jpg",
         "picturePath": "res/images/tartu2022.jpg",
-        "postDate": "2024-10-22T10:15:00Z",
+        "postDate": "October 25, 2024",
         "postText": "This is an amazing post content. It could be a description of the image or any other text content related to the post.",
         "likes": 95
     },
@@ -24,7 +24,7 @@
         "userId": 1,
         "authorName": "Alice Johnson",
         "profilePicPath": "res/images/profilePicture1.jpg",
-        "postDate": "2024-10-20T09:00:00Z",
+        "postDate": "October 22, 2024",
         "postText": "Really awesome book review :)",
         "likes": 78
     },
@@ -33,7 +33,7 @@
         "userId": 2,
         "authorName": "Bob Smith",
         "profilePicPath": "res/images/profilePicture2.jpg",
-        "postDate": "2024-10-19T16:45:00Z",
+        "postDate": "October 12, 2024",
         "postText": "Whoa this is another post without image! Amazing",
         "likes": 60
     },
@@ -43,7 +43,7 @@
         "authorName": "Bob Smith",
         "profilePicPath": "res/images/profilePicture2.jpg",
         "picturePath": "res/images/man.jpg",
-        "postDate": "2024-10-19T12:00:00Z",
+        "postDate": "September 22, 2024",
         "postText": "Hi! How are you!",
         "likes": 150
     },
@@ -53,7 +53,7 @@
         "authorName": "Bob Smith",
         "profilePicPath": "res/images/profilePicture2.jpg",
         "picturePath": "res/images/cat.jpg",
-        "postDate": "2024-10-18T11:30:00Z",
+        "postDate": "September 21, 2024",
         "postText": "Look how cute my cat is!",
         "likes": 200
     },
@@ -63,7 +63,7 @@
         "authorName": "Charlie Brown",
         "profilePicPath": "res/images/profilePicture3.jpg",
         "picturePath": "res/images/rocket.jpg",
-        "postDate": "2024-10-17T18:00:00Z",
+        "postDate": "September 3, 2024",
         "postText": "So cool!",
         "likes": 85
     },
@@ -72,7 +72,7 @@
         "userId": 3,
         "authorName": "Charlie Brown",
         "profilePicPath": "res/images/profilePicture3.jpg",
-        "postDate": "2024-10-17T08:00:00Z",
+        "postDate": "September 1, 2024",
         "postText": "Wow I can post without a picture.",
         "likes": 50
     },
@@ -82,7 +82,7 @@
         "authorName": "Charlie Brown",
         "profilePicPath": "res/images/profilePicture3.jpg",
         "picturePath": "res/images/sky.jpg",
-        "postDate": "2024-10-16T20:00:00Z",
+        "postDate": "August, 2024",
         "postText": "Look at the stars!",
         "likes": 120
     },
@@ -91,7 +91,7 @@
         "userId": 3,
         "authorName": "Charlie Brown",
         "profilePicPath": "res/images/profilePicture3.jpg",
-        "postDate": "2024-10-14T14:00:00Z",
+        "postDate": "August 7, 2024",
         "postText": "First post, so excited :D",
         "likes": 90
     }
