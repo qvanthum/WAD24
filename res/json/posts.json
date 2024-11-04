@@ -1,0 +1,98 @@
+[
+    {
+        "postId": "1-1",
+        "userId": 1,
+        "authorName": "Alice Johnson",
+        "profilePicPath": "res/images/profilePicture1.jpg",
+        "picturePath": "res/images/moon.jpg",
+        "postDate": "2024-10-23T14:30:00Z",
+        "postText": "This is an amazing post! You are cool!",
+        "likes": 120
+    },
+    {
+        "postId": "1-2",
+        "userId": 1,
+        "authorName": "Alice Johnson",
+        "profilePicPath": "res/images/profilePicture1.jpg",
+        "picturePath": "res/images/tartu2022.jpg",
+        "postDate": "2024-10-22T10:15:00Z",
+        "postText": "This is an amazing post content. It could be a description of the image or any other text content related to the post.",
+        "likes": 95
+    },
+    {
+        "postId": "1-3",
+        "userId": 1,
+        "authorName": "Alice Johnson",
+        "profilePicPath": "res/images/profilePicture1.jpg",
+        "postDate": "2024-10-20T09:00:00Z",
+        "postText": "Really awesome book review :)",
+        "likes": 78
+    },
+    {
+        "postId": "2-1",
+        "userId": 2,
+        "authorName": "Bob Smith",
+        "profilePicPath": "res/images/profilePicture2.jpg",
+        "postDate": "2024-10-19T16:45:00Z",
+        "postText": "Whoa this is another post without image! Amazing",
+        "likes": 60
+    },
+    {
+        "postId": "2-2",
+        "userId": 2,
+        "authorName": "Bob Smith",
+        "profilePicPath": "res/images/profilePicture2.jpg",
+        "picturePath": "res/images/man.jpg",
+        "postDate": "2024-10-19T12:00:00Z",
+        "postText": "Hi! How are you!",
+        "likes": 150
+    },
+    {
+        "postId": "2-3",
+        "userId": 2,
+        "authorName": "Bob Smith",
+        "profilePicPath": "res/images/profilePicture2.jpg",
+        "picturePath": "res/images/cat.jpg",
+        "postDate": "2024-10-18T11:30:00Z",
+        "postText": "Look how cute my cat is!",
+        "likes": 200
+    },
+    {
+        "postId": "3-1",
+        "userId": 3,
+        "authorName": "Charlie Brown",
+        "profilePicPath": "res/images/profilePicture3.jpg",
+        "picturePath": "res/images/rocket.jpg",
+        "postDate": "2024-10-17T18:00:00Z",
+        "postText": "So cool!",
+        "likes": 85
+    },
+    {
+        "postId": "3-2",
+        "userId": 3,
+        "authorName": "Charlie Brown",
+        "profilePicPath": "res/images/profilePicture3.jpg",
+        "postDate": "2024-10-17T08:00:00Z",
+        "postText": "Wow I can post without a picture.",
+        "likes": 50
+    },
+    {
+        "postId": "3-3",
+        "userId": 3,
+        "authorName": "Charlie Brown",
+        "profilePicPath": "res/images/profilePicture3.jpg",
+        "picturePath": "res/images/sky.jpg",
+        "postDate": "2024-10-16T20:00:00Z",
+        "postText": "Look at the stars!",
+        "likes": 120
+    },
+    {
+        "postId": "3-4",
+        "userId": 3,
+        "authorName": "Charlie Brown",
+        "profilePicPath": "res/images/profilePicture3.jpg",
+        "postDate": "2024-10-14T14:00:00Z",
+        "postText": "First post, so excited :D",
+        "likes": 90
+    }
+]
