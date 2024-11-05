@@ -45,12 +45,13 @@
             const dropdown = document.getElementById('userDropdown');
             dropdown.classList.toggle('show');
 
-            document.addEventListener('click', function closeDropdown(e) {
-                if (!e.target.closest('.userPic')) {
-                    dropdown.classList.remove('show');
-                    document.removeEventListener('click', closeDropdown);
-                }
-            });
+            // closes the dropdown if clicked anywhere else on the screen
+            // document.addEventListener('click', function closeDropdown(e) {
+            //     if (!e.target.closest('.userPic')) {
+            //         dropdown.classList.remove('show');
+            //         document.removeEventListener('click', closeDropdown);
+            //     }
+            // });
         }
     </script>
 </body>
