@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="res/css/style.css">
     <title>Add Post</title>
 </head>
+
 <body>
     <div class="container">
         <header>
             <nav>
-                <a  href="index.html">Home</a>
+                <a href="index.html">Home</a>
             </nav>
-            <a class="userPic"><img src="res/images/profilePicture.jpg" width="50" height="50" alt="Profile picture"></a>
+            <div class="userPic">
+                <img src="res/images/profilePicture.jpg" width="50" height="50" alt="Profile picture"
+                    onclick="toggleDropdown()">
+                <div class="dropdown" id="userDropdown">
+                    <a href="#" class="dropdown-item">John Doe</a>
+                    <a href="#" class="dropdown-item">john.doe@ut.ee</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
         </header>
 
         <div class="middle-block">
@@ -30,6 +40,19 @@
         </div>
 
     </div>
+    <script>
+        const toggleDropdown = () => {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('show');
+
+            document.addEventListener('click', function closeDropdown(e) {
+                if (!e.target.closest('.userPic')) {
+                    dropdown.classList.remove('show');
+                    document.removeEventListener('click', closeDropdown);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

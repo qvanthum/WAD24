@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="res/css/style.css">
     <title>Index</title>
 </head>
+
 <body>
     <div class="container">
         <header>
             <nav>
-                <a  href="index.html">Home</a>
+                <a href="index.html">Home</a>
                 <span>|</span>
-                <a  href="addPost.html">addPost</a>
+                <a href="addPost.html">addPost</a>
             </nav>
-            <a class="userPic"><img src="res/images/profilePicture.jpg" width="50" height="50" alt="Profile picture"></a>
+            <div class="userPic">
+                <img src="res/images/profilePicture.jpg" width="50" height="50" alt="Profile picture"
+                    onclick="toggleDropdown()">
+                <div class="dropdown" id="userDropdown">
+                    <a href="#" class="dropdown-item">John Doe</a>
+                    <a href="#" class="dropdown-item">john.doe@ut.ee</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
         </header>
 
         <div class="middle">
@@ -24,7 +34,7 @@
             <div id="posts" class="posts">
             </div>
             <div class="rightbar">
-                
+
             </div>
 
         </div>
@@ -33,53 +43,52 @@
             Footer
         </footer>
     </div>
-</body>
+    <script>
 
-<script>
-//fetch from endpoint
-const fetchPosts = async () => {
-    try {
-        const response = await fetch('https://api.jsonbin.io/v3/b/67290e27e41b4d34e44e594e', {
-            headers: {
-                'X-Master-Key': '$2a$10$lmB8b2uoW2ZRxXf9JhGMW.u0MVZLftafLNpE4ZjwQHZvHWTGofRC2',
+        //fetch from endpoint
+        const fetchPosts = async () => {
+            try {
+                const response = await fetch('https://api.jsonbin.io/v3/b/67290e27e41b4d34e44e594e', {
+                    headers: {
+                        'X-Master-Key': '$2a$10$lmB8b2uoW2ZRxXf9JhGMW.u0MVZLftafLNpE4ZjwQHZvHWTGofRC2',
+                    }
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const jsonResponse = await response.json();
+                console.log("Fetched from endpoint");
+                console.log(jsonResponse);
+
+                const posts = jsonResponse.record;
+                displayPosts(posts);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
-        });
-        if (!response.ok) throw new Error('Network response was not ok');
-        
-        const jsonResponse = await response.json();
-        console.log("Fetched from endpoint");
-        console.log(jsonResponse);
+        };
 
-        const posts = jsonResponse.record; 
-        displayPosts(posts);
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-    }
-};
+        //fetch local
+        const localPosts = '/res/json/posts.json';
 
-//fetch local
-const localPosts = '/res/json/posts.json';
+        const fetchLocalPosts = async () => {
+            try {
+                const response = await fetch(localPosts);
+                if (!response.ok) throw new Error('Failed to load local posts JSON');
+                const posts = await response.json();
+                console.log("Fetched from local folder");
+                displayPosts(posts);
+            } catch (error) {
+                console.error('Error fetching local posts:', error);
+            }
+        };
 
-const fetchLocalPosts = async () => {
-    try {
-        const response = await fetch(localPosts);
-        if (!response.ok) throw new Error('Failed to load local posts JSON');
-        const posts = await response.json();
-        console.log("Fetched from local folder");
-        displayPosts(posts);
-    } catch (error) {
-        console.error('Error fetching local posts:', error);
-    }
-};
+        //display function
+        const displayPosts = (posts) => {
+            const postsContainer = document.getElementById('posts');
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'post';
 
-//display function
-const displayPosts = (posts) => {
-    const postsContainer = document.getElementById('posts');
-    posts.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.className = 'post';
-        
-        postElement.innerHTML = `
+                postElement.innerHTML = `
         <div class="post-header">
           <img src="${post.profilePicPath}" alt="${post.authorName}'s Profile Image" class="profile-img">
           <span class="post-date">${post.postDate}</span>
@@ -99,14 +108,26 @@ const displayPosts = (posts) => {
           <span>${post.likes || 0}</span>
         </div>
         `;
-        postsContainer.appendChild(postElement);
-    });
-};
+                postsContainer.appendChild(postElement);
+            });
+        };
 
+        const toggleDropdown = () => {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('show');
 
-fetchPosts();
-//fetchLocalPosts();
+            document.addEventListener('click', function closeDropdown(e) {
+                if (!e.target.closest('.userPic')) {
+                    dropdown.classList.remove('show');
+                    document.removeEventListener('click', closeDropdown);
+                }
+            });
+        }
 
-</script>
+        fetchPosts();
+        //fetchLocalPosts();
+
+    </script>
+</body>
 
 </html>

@@ -7,6 +7,45 @@
 
 .userPic {
     margin-right: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.userPic img {
+    border-radius: 50%;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: -18px;
+    top: 60px;
+    background-color: #bfbfbff5;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    border-radius: 8px;
 }
 
 body {
@@ -34,11 +73,12 @@ nav a:hover {
     border-radius: 5px;
 }
 
-#forgetPassword, h3 + p {
+#forgetPassword,
+h3+p {
     color: rgb(45, 206, 242);
 }
 
-h3 ~ input {
+h3~input {
     font-size: 25px;
 }
 
@@ -65,8 +105,8 @@ h3 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-  }
-  
+}
+
 header {
     width: 100%;
     padding-top: .5em;
@@ -92,9 +132,9 @@ footer {
     text-align: center;
     flex: 2;
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-  }
+    align-items: center;
+    justify-content: center;
+}
 
 .middle {
     display: flex;
@@ -104,7 +144,7 @@ footer {
 
 .leftbar {
     width: 15%;
-    background-color:#bfbfbf;
+    background-color: #bfbfbf;
     padding: 20px;
     border-radius: 10px;
     margin: 0.1rem;
@@ -131,48 +171,48 @@ footer {
     margin: 20px auto;
     border-radius: 10px;
     padding: 10px;
-    background-color:  #bfbfbf;
+    background-color: #bfbfbf;
 }
-  
+
 .post-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
-  
+
 .profile-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
-  
+
 .post-date {
     font-size: 0.9rem;
     color: #666;
 }
-  
+
 .post-image img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
 }
-  
+
 .post-text {
     margin-bottom: 10px;
 }
-  
+
 .post-text p {
     font-size: 1rem;
     color: #333;
 }
-  
+
 .like-button {
     text-align: left;
 }
-  
+
 .like-button button {
     background-color: #007bff;
     color: #fff;
@@ -183,20 +223,23 @@ footer {
     font-size: 1rem;
     transition: background-color 0.3s;
 }
-  
+
 .like-button button:hover {
     background-color: #0056b3;
 }
-  
+
 
 @media(max-width: 800px) {
     section {
         width: 50%;
     }
-    .rightbar, .leftbar{
+
+    .rightbar,
+    .leftbar {
         display: none;
     }
-    .posts{
+
+    .posts {
         width: 100%;
     }
 }
@@ -220,7 +263,7 @@ footer {
     margin-right: 0.5rem;
 }
 
-.form-row > input#file {
+.form-row>input#file {
     width: 190px;
 }
 
@@ -228,4 +271,3 @@ input[type='file'] {
     color: transparent;
     overflow: hidden;
 }
-
