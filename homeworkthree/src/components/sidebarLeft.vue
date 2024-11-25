@@ -20,5 +20,10 @@
     flex-grow: 0;
     order: 1;
   }
+  @media(max-width: 800px) {
+    .sidebar-left {
+        display: none;
+    }
+  }
   </style>
   

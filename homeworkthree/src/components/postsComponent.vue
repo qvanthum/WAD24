@@ -63,5 +63,10 @@
   .reset-button:hover {
     opacity: 0.8;
   }
+  @media(max-width: 800px) {
+    .posts {
+        width: 100%;
+    }
+  }
   </style>
   
