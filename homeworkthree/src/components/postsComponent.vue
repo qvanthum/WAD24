@@ -53,7 +53,6 @@
   .reset-button {
     width: 100px;
     padding: 10px;
-    margin-top: 20px;
     background-color: crimson;
     color: white;
     border: none;
