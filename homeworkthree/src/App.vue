@@ -1,19 +1,10 @@
 <template>
-  <div>
-    <headerComponent/>
-    <sidebarLeft/>
-    <sidebarRight/>
-    <footerComponent/>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
 </template>
-
-<script>
-import headerComponent from './components/headerComponent.vue';
-import sidebarLeft from './components/sidebarLeft.vue';
-import sidebarRight from './components/sidebarRight.vue';
-import footerComponent from './components/footerComponent.vue';
-
-</script>
 
 <style>
 #app {
