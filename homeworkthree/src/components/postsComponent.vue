@@ -35,12 +35,12 @@
   
   <style scoped>
   .middle {
-  display: flex;
-  justify-content: center; /* Center the content horizontally */
-  flex-grow: 1;            /* Let the middle container grow to fill the remaining space */
-  margin: 20px;
-  order: 2;
-}
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin: 20px;
+    order: 2;
+  }
 
   .posts {
     width: 60%;

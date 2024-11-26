@@ -1,21 +1,21 @@
 <template>
-    <div class = "signup">
-    <form @submit.prevent="handleSubmit">
-        <div class="email-field">
-            <p>Email</p>
-            <input type="email" class="textbox" placeholder="Email" required> <br>
-        </div>
-        <div class = "password-field">
-            <p>Password</p>
-            <input type="password" v-model = "password" class="textbox" placeholder="Password" required @input="ValidatePassword"><br>
-        </div>
-        <div class="PasswordConditions" v-if="passwordFeedback">
-            <p v-for="(error, index) in passwordFeedback.split('\n')" :key="index" class="feedback">
-                {{ error }}
-            </p>
-        </div>
-        <input type="submit" class="button" value="Signup">
-    </form>
+    <div class = "signup middle">
+        <form @submit.prevent="handleSubmit">
+            <div class="email-field">
+                <p>Email</p>
+                <input type="email" class="textbox" placeholder="Email" required> <br>
+            </div>
+            <div class = "password-field">
+                <p>Password</p>
+                <input type="password" v-model = "password" class="textbox" placeholder="Password" required @input="ValidatePassword"><br>
+            </div>
+            <div class="PasswordConditions" v-if="passwordFeedback">
+                <p v-for="(error, index) in passwordFeedback.split('\n')" :key="index" class="feedback">
+                    {{ error }}
+                </p>
+            </div>
+            <input type="submit" class="button" value="Signup">
+        </form>
     </div>
     </template>
     
@@ -69,6 +69,14 @@
         font-size: large;
     }
     
+    .middle {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        margin: 20px;
+        order: 2;
+    }
+
     form {
         padding: 20px;
         border-radius: 20px;
