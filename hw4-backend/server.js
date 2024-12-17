@@ -143,6 +143,33 @@ app.post('/post', async (req, res) => {
     }
 });
 
+app.delete('/post/:id', async (req, res) => {
+    try {
+        const authInfo = checkAuth(req);
+
+        if (!authInfo.authenticated) {
+            res.status(403).send("not authenticated");
+        }
+
+        if (!req.params.id) {
+            res.status(400).send("invalid id param");
+        }
+
+        await pool.query(
+            "DELETE FROM posts WHERE id = $1", [req.params.id]
+        );
+
+        res.status(204).send();
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send(err.message);
+    }
+});
+
+app.patch('/post/:id', async (req, res) => {
+
+});
+
 // deletes all posts
 app.delete('/post', async (req, res) => {
     try {

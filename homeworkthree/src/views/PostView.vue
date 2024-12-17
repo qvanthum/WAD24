@@ -1,7 +1,5 @@
 <template>
     <div class="middle">
-        <!-- <postComponent v-if="post" :post="post" @increment="incrementLikes" />
-        <p v-else>Post not found</p> -->
         <form @submit.prevent="">
             <div>
                 <p>A Post</p>

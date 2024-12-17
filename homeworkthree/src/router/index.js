@@ -6,15 +6,24 @@ import contactComponent from '../components/contactComponent.vue';
 import addPostComponent from '@/components/addPostComponent.vue';
 import postView from '@/views/PostView.vue';
 import auth from "../auth";
+import store from '../store/index'
 
-const checkAuth = async (_to, _from, next) => {
-  let authResult = await auth.authenticated();
-  if (!authResult) {
-      next('/login')
-  } else {
-      next();
+async function checkAuth() {
+  const authResult = await auth.authenticated()
+  return authResult
+}
+
+const ensurePostsLoaded = async () => {
+  if (!store.state.posts || store.state.posts.length === 0) {
+    try {
+      const response = await fetch('http://localhost:3000/post/list', { credentials: 'include' });
+      const data = await response.json();
+      store.commit('setPosts', data);
+    } catch (e) {
+      console.error(e);
+    }
   }
-};
+}
 
 const routes = [
   {
@@ -26,8 +35,19 @@ const routes = [
     beforeEnter: checkAuth,
   },
   {
-    path: '/post/:id', component: postView, props: true,
-    beforeEnter: checkAuth,
+    path: '/post/:id',
+    component: postView,
+    props: true,
+    beforeEnter: async (to, from, next) => {
+      const authResult = await checkAuth()
+      if (!authResult) {
+        return next('/login')
+      }
+
+      await ensurePostsLoaded()
+
+      next();
+    }
   },
   {
     path: '/signup', component: signupComponent
@@ -38,7 +58,7 @@ const routes = [
   {
     path: '/contacts', component: contactComponent
   },
-  
+
 ]
 
 const router = createRouter({

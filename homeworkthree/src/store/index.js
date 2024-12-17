@@ -6,13 +6,17 @@ const store = createStore({
   },
   mutations: {
     incrementLikes(state, postId) {
-      const post = state.posts.find((p) => p.postId === postId);
+      const post = state.posts.find((p) => p.id === postId);
       if (post) {
         post.likes++;
       }
     },
     deletePosts(state) {
       state.posts = [];
+    },
+    deletePost(state, postId) {
+      const idx = state.posts.indexOf(p => p.id === postId);
+      delete state.posts[idx];
     },
     resetLikes(state) {
       state.posts.forEach((post) => (post.likes = 0));
