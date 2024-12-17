@@ -21,7 +21,6 @@ export default {
     sidebarLeft,
     sidebarRight,
     footerComponent,
-    
 }
 }
 

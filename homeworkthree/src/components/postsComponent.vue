@@ -1,6 +1,8 @@
 <template>
     <div class="middle">
+      
         <div class="posts" ref="postsDiv">
+          <button @click="Logout" class="reset-button">Log out</button>
         <postComponent
             v-for="(post, index) in posts"
             :key="index"
@@ -13,6 +15,7 @@
   </template>
   
   <script>
+  import auth from "../auth";
   import postComponent from "../components/postComponent.vue";
   import { mapGetters, mapActions } from "vuex";
   
@@ -21,6 +24,12 @@
     components: {
       postComponent,
     },
+    data: function() {
+    return {
+    posts:[ ],
+    authResult: auth.authenticated()
+    }
+   },
     computed: {
       ...mapGetters(["posts"]),
     },
@@ -29,7 +38,31 @@
       resetAllLikes() {
         this.resetLikes();
       },
+    
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('jwt removed');
+        //console.log('jwt removed:' + auth.authenticated());
+        this.$router.push("/login");
+        location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
     },
+  }, 
+  mounted() {
+        fetch('https://jsonplaceholder.typicode.com/posts')
+        .then((response) => response.json())
+        .then(data => this.posts = data)
+        .catch(err => console.log(err.message))
+    }
   };
   </script>
   

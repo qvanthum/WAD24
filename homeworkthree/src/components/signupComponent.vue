@@ -3,7 +3,7 @@
         <form @submit.prevent="handleSubmit">
             <div class="email-field">
                 <p>Email</p>
-                <input type="email" class="textbox" placeholder="Email" required> <br>
+                <input type="email" class="textbox" placeholder="Email" required v-model="email"> <br>
             </div>
             <div class = "password-field">
                 <p>Password</p>
@@ -38,6 +38,7 @@
       // If the password meets all requirements, proceed with form submission logic
       if (this.passwordFeedback === '') {
         //alert('Signup successful!');
+        this.SignUp()
         this.$router.push('/');
       } else {
         alert('Please enter valid password before signing up.');
@@ -46,17 +47,42 @@
     checkPasswordRequirements(password) {
         if(password == "") return "Password must have at least 8 characters."
         var requirements = "";
-        if(password[0].match(/[A-Z]/) == null) requirements += "Password must start with uppercase character.\n";
+        if(password[0].match(/[A-ZÄÖÜÕ]/) == null) requirements += "Password must start with uppercase character.\n";
         
 
-        if(password.match(/[A-Z]/) == null)     requirements += "Password must include uppercase character.\n";
-        if(password.match(/[a-z]/g) == null || password.match(/[a-z]/g).length < 2)  requirements += "Password must include 2 lowercase character.\n";  
+        if(password.match(/[A-ZÄÖÜÕ]/) == null)     requirements += "Password must include uppercase character.\n";
+        if(password.match(/[a-zöäüõ]/g) == null || password.match(/[a-z]/g).length < 2)  requirements += "Password must include 2 lowercase character.\n";  
         if(password.match(/\d/) == null) requirements += "Password must include one numeric value.\n";
         if(password.match("_") == null) requirements += "Password must include the character “_”.\n";
 
         if(password.length < 8)  requirements += "Password must have at least 8 characters.\n";
         if(password.length > 15) requirements += "Password must have less than 15 characters.\n";
         return requirements;
+    },
+    SignUp() {
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+      console.log(data);
+      this.$router.push("/");
+      //location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error");
+      });
     },
 },
 };
