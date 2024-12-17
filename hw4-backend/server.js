@@ -143,6 +143,26 @@ app.post('/post', async (req, res) => {
     }
 });
 
+// deletes all posts
+app.delete('/post', async (req, res) => {
+    try {
+        const authInfo = checkAuth(req);
+
+        if (!authInfo.authenticated) {
+            res.status(403).send("not authenticated");
+        }
+
+        await pool.query(
+            "DELETE FROM posts WHERE 1=1"
+        );
+
+        res.status(204).send();
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send(err.message);
+    }
+});
+
 app.get('/post/list', async (req, res) => {
     try {
         const authInfo = checkAuth(req);

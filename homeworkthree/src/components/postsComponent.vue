@@ -2,8 +2,11 @@
   <div class="middle">
     <div class="posts" ref="postsDiv">
       <button @click="Logout" class="action-button">Log out</button>
-      <postComponent v-for="(post, index) in posts" :key="index" :post="post"
-        @increment="incrementLikes(post.postId)" />
+
+      <router-link v-for="(post, index) in posts" :key="index" :to="`/post/${post.id}`" class="post-link">
+        <postComponent :post="post" @increment="incrementLikes(post.id)" />
+      </router-link>
+
       <div class="action-button-group">
         <button @click="addPost" class="action-button">Add Post</button>
         <button @click="deleteAllPosts" class="action-button">Delete All</button>
@@ -24,7 +27,6 @@ export default {
   },
   data: function () {
     return {
-      posts: [],
       authResult: auth.authenticated()
     }
   },
@@ -32,9 +34,11 @@ export default {
     ...mapGetters(["posts"]),
   },
   methods: {
-    ...mapActions(["resetLikes", "incrementLikes"]),
+    ...mapActions(["resetLikes", "incrementLikes", "deletePosts"]),
     deleteAllPosts() {
-      this.deletePosts();
+      fetch('http://localhost:3000/post', { credentials: 'include', method: 'DELETE' })
+        .then(() => this.deletePosts())
+        .catch(console.error);
     },
 
     addPost() {
@@ -59,16 +63,27 @@ export default {
         });
     },
   },
+
   mounted() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://localhost:3000/post/list', { credentials: 'include' })
       .then((response) => response.json())
-      .then(data => this.posts = data)
+      .then(data => {
+        this.$store.commit('setPosts', data)
+      })
       .catch(err => console.log(err.message))
   }
 };
 </script>
 
 <style scoped>
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+}
+
 .middle {
   display: flex;
   justify-content: center;

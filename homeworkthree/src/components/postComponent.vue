@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <div class="post-header">
-      <img class="profile-img" width="50" height="50" :src="post.profilePicPath" alt="Profile Picture" />
+      <img class="profile-img" width="50" height="50" :src="post.authorProfilePic ? post.authorProfilePic : '/images/profilePicture.jpg'"  alt="Profile Picture" />
       <span class="post-date">{{ post.postDate }}</span>
     </div>
     <div class="post-image">

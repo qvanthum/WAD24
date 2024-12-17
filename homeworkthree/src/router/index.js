@@ -4,6 +4,7 @@ import signupComponent from '../components/signupComponent.vue';
 import loginComponent from '@/components/loginComponent.vue';
 import contactComponent from '../components/contactComponent.vue';
 import addPostComponent from '@/components/addPostComponent.vue';
+import postView from '@/views/PostView.vue';
 import auth from "../auth";
 
 const checkAuth = async (_to, _from, next) => {
@@ -22,6 +23,10 @@ const routes = [
   },
   {
     path: '/addPost', component: addPostComponent,
+    beforeEnter: checkAuth,
+  },
+  {
+    path: '/post/:id', component: postView, props: true,
     beforeEnter: checkAuth,
   },
   {
