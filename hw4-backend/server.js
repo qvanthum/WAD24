@@ -69,7 +69,7 @@ app.post('/auth/signup', async(req, res) => {
         //console.log(token);
         //res.cookie("isAuthorized", true, { maxAge: 1000 * 60, httpOnly: true });
         //res.cookie('jwt', token, { maxAge: 6000000, httpOnly: true });
-        res
+        return res
             .status(201)
             .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
             .json({ user_id: authUser.rows[0].id })
@@ -104,7 +104,7 @@ app.post('/auth/login', async(req, res) => {
         if (!validPassword) return res.status(401).json({ error: "Incorrect password" });
 
         const token = await generateJWT(user.rows[0].id);
-        res
+        return res
             .status(201)
             .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
             .json({ user_id: user.rows[0].id })
@@ -126,17 +126,17 @@ app.post('/post', async (req, res) => {
         const result = checkAuth(req);
 
         if (!result.authenticated) {
-            res.status(403).send("not authenticated");
+            return res.status(403).send("not authenticated");
         }
 
         if (!text) {
-            res.status(400).send("'text' not provided")
+            return res.status(400).send("'text' not provided")
         }
         await pool.query(
             "INSERT INTO posts(user_id, post_text) VALUES ($1, $2)", [result.userId, text]
         )
 
-        res.status(201).send();
+        return res.status(201).send();
     } catch (err) {
         console.error(err.message);
         res.status(500).send(err.message);
@@ -148,18 +148,18 @@ app.delete('/post/:id', async (req, res) => {
         const authInfo = checkAuth(req);
 
         if (!authInfo.authenticated) {
-            res.status(403).send("not authenticated");
+            return res.status(403).send("not authenticated");
         }
 
         if (!req.params.id) {
-            res.status(400).send("invalid id param");
+            return res.status(400).send("invalid id param");
         }
 
         await pool.query(
             "DELETE FROM posts WHERE id = $1", [req.params.id]
         );
 
-        res.status(204).send();
+        return res.status(204).send();
     } catch (err) {
         console.error(err.message);
         res.status(500).send(err.message);
@@ -167,7 +167,34 @@ app.delete('/post/:id', async (req, res) => {
 });
 
 app.patch('/post/:id', async (req, res) => {
+    try {
+        const authInfo = checkAuth(req);
 
+        if (!authInfo.authenticated) {
+            return res.status(403).send("not authenticated");
+        }
+
+        const { text } = req.body;
+
+        if (!req.params.id) {
+            return res.status(400).send("invalid id");
+        }
+
+        if (!text) {
+            return res.status(400).send("invalid body");
+        }
+
+        console.log(text, req.params.id);
+        const rows = await pool.query(
+            "UPDATE posts SET post_text = $1 WHERE id = $2;", [text, req.params.id]
+        );
+
+        console.log(rows);
+        return res.status(204).send();
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).send(err.message);
+    }
 });
 
 // deletes all posts
@@ -176,14 +203,14 @@ app.delete('/post', async (req, res) => {
         const authInfo = checkAuth(req);
 
         if (!authInfo.authenticated) {
-            res.status(403).send("not authenticated");
+            return res.status(403).send("not authenticated");
         }
 
         await pool.query(
             "DELETE FROM posts WHERE 1=1"
         );
 
-        res.status(204).send();
+        return res.status(204).send();
     } catch (err) {
         console.error(err.message);
         res.status(500).send(err.message);
@@ -195,14 +222,14 @@ app.get('/post/list', async (req, res) => {
         const authInfo = checkAuth(req);
 
         if (!authInfo.authenticated) {
-            res.status(403).send("not authenticated");
+            return res.status(403).send("not authenticated");
         }
 
         const result = await pool.query(
-            "SELECT * FROM posts p LEFT JOIN users u ON p.user_id = u.id"
+            "SELECT p.id, p.user_id, p.post_date, p.post_text, p.likes, u.name, u.email, u.profile_pic_path FROM posts p LEFT JOIN users u ON p.user_id = u.id"
         );
 
-        res.status(200).json(result.rows.map((p) => ({
+        return res.status(200).json(result.rows.map((p) => ({
             id: p.id,
             userId: p.user_id,
             postDate: p.post_date,

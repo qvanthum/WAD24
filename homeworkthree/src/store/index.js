@@ -14,9 +14,14 @@ const store = createStore({
     deletePosts(state) {
       state.posts = [];
     },
+    updatePost(state, postId, text) {
+      const index = state.posts.findIndex(p => p.id === postId);
+      if (index !== -1) {
+        state.posts[index].postText = text;
+      }
+    },
     deletePost(state, postId) {
-      const idx = state.posts.indexOf(p => p.id === postId);
-      delete state.posts[idx];
+      state.posts = state.posts.filter(p => p.id !== postId);
     },
     resetLikes(state) {
       state.posts.forEach((post) => (post.likes = 0));
