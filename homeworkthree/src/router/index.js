@@ -28,7 +28,16 @@ const ensurePostsLoaded = async () => {
 const routes = [
   {
     path: '/', component: postsComponent,
-    beforeEnter: checkAuth,
+    beforeEnter: async (to, from, next) => {
+      const authResult = await checkAuth()
+      if (!authResult) {
+        return next('/login')
+      }
+
+      await ensurePostsLoaded()
+
+      next();
+    }
   },
   {
     path: '/addPost', component: addPostComponent,
