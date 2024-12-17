@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import postsComponent from '../components/postsComponent.vue';
 import signupComponent from '../components/signupComponent.vue';
 import loginComponent from '@/components/loginComponent.vue';
+import contactComponent from '../components/contactComponent.vue';
 import auth from "../auth";
 
 
@@ -23,8 +24,10 @@ const routes = [
     path: '/signup', component: signupComponent
   },
   {
-    path: '/login', component: loginComponent,
-    
+    path: '/login', component: loginComponent
+  },
+  {
+    path: '/contacts', component: contactComponent
   },
   
 ]

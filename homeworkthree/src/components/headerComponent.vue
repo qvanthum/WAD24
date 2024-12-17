@@ -7,6 +7,7 @@
       <nav>
         <router-link to="/" class="buttons">Home</router-link>
         <router-link to="/signup" class="buttons">Sign Up</router-link>
+        <router-link to="/contacts" class="buttons">Contacts</router-link>
       </nav>
     </div>
   </header>
