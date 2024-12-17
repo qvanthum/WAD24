@@ -1,5 +1,7 @@
 <template>
-    <h1>hello</h1>
+  <div class="middle">
+    <h1>add post</h1>
+  </div>
 </template>
 
 <script>
