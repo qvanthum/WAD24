@@ -108,6 +108,9 @@ const store = createStore({
         post.likes++;
       }
     },
+    deletePosts(state) {
+      state.posts = [];
+    },
     resetLikes(state) {
       state.posts.forEach((post) => (post.likes = 0));
     },
